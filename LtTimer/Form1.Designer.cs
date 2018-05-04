@@ -29,11 +29,47 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.labelTime = new System.Windows.Forms.Label();
+            this.timerSec = new System.Windows.Forms.Timer(this.components);
+            this.SuspendLayout();
+            // 
+            // labelTime
+            // 
+            this.labelTime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTime.BackColor = System.Drawing.Color.Black;
+            this.labelTime.ForeColor = System.Drawing.Color.White;
+            this.labelTime.Location = new System.Drawing.Point(0, 0);
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(289, 268);
+            this.labelTime.TabIndex = 0;
+            this.labelTime.Text = "label1";
+            this.labelTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // timerSec
+            // 
+            this.timerSec.Interval = 1000;
+            this.timerSec.Tick += new System.EventHandler(this.timerSec_Tick);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.labelTime);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Label labelTime;
+        private System.Windows.Forms.Timer timerSec;
     }
 }
 
