@@ -11,10 +11,13 @@ namespace LtTimer
 {
     public partial class Form1 : Form
     {
-        int _remaining = 300;
+        int _remainingInit = 300;
+        int _remaining;
 
         public Form1()
         {
+            _remaining = _remainingInit;
+
             InitializeComponent();
             DrawLabel();
         }
@@ -38,6 +41,11 @@ namespace LtTimer
                     {
                         timerSec.Start();
                     }
+                    break;
+                case Keys.R:
+                    timerSec.Stop();
+                    _remaining = _remainingInit;
+                    DrawLabel();
                     break;
                 default:
                     break;
