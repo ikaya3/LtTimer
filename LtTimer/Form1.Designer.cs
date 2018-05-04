@@ -59,8 +59,11 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.labelTime);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.ResumeLayout(false);
 

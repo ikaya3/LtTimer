@@ -54,5 +54,10 @@ namespace LtTimer
             var remainingAbs = Math.Abs(_remaining);
             labelTime.Text = String.Format("{0}:{1:D2}", remainingAbs / 60, remainingAbs % 60);
         }
+
+        private void Form1_SizeChanged(object sender, EventArgs e)
+        {
+            DrawLabel();
+        }
     }
 }
