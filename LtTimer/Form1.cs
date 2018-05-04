@@ -46,6 +46,11 @@ namespace LtTimer
 
         void DrawLabel()
         {
+            var sizeFontPixel = labelTime.Width / 3;
+            labelTime.Font = new Font("Ariel", sizeFontPixel, FontStyle.Bold, GraphicsUnit.Pixel);
+
+            labelTime.ForeColor = (_remaining >= 0) ? Color.White : Color.Red;
+
             var remainingAbs = Math.Abs(_remaining);
             labelTime.Text = String.Format("{0}:{1:D2}", remainingAbs / 60, remainingAbs % 60);
         }
