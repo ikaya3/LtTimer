@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -26,6 +27,7 @@ namespace LtTimer
         {
             _remaining--;
             DrawLabel();
+            PlayAudio();
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -61,6 +63,19 @@ namespace LtTimer
 
             var remainingAbs = Math.Abs(_remaining);
             labelTime.Text = String.Format("{0}:{1:D2}", remainingAbs / 60, remainingAbs % 60);
+        }
+
+        void PlayAudio()
+        {
+            var filesAudio = new Dictionary<int, string>{
+                {  0, "timeup.wav"  },
+                { 60, "hurryup.wav" },
+            };
+            if (filesAudio.ContainsKey(_remaining))
+            {
+                new System.Media.SoundPlayer(
+                    Path.Combine(Environment.CurrentDirectory, "audio", filesAudio[_remaining])).Play();
+            }
         }
 
         private void Form1_SizeChanged(object sender, EventArgs e)
